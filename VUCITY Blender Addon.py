@@ -4,7 +4,7 @@ bl_info = {
     "author": "Dawud <d.izza@vu.city>",
     "category": "Object",
     "location": "Operator Search",
-    "desctription": "Find and select mesh with one click"
+    "desctription": "VU.CITY Addon"
 }
 
 import pathlib
