@@ -1,6 +1,6 @@
 # vu.city
-VU.CITY Blender plugin
-How to use this plugin:
+
+How to use VU.CITY Blender plugin:
 
 1. Save the .py file anywhere on your machine. 
 2. Open Blender and go to Edit-Preferences-Addons-Install.
