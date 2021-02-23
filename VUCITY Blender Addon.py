@@ -2,9 +2,10 @@ bl_info = {
     "name": "VU.CITY Addon",
     "blender": (2, 90, 0),
     "author": "Dawud <d.izza@vu.city>",
+    "version": (1, 0, 0),
     "category": "Object",
     "location": "Operator Search",
-    "desctription": "VU.CITY Addon"
+    "desctription": "VU.CITY Plugin"
 }
 
 import pathlib
@@ -40,7 +41,7 @@ class SelectMesh(bpy.types.Operator):
 
 
 class CorrectOrientation(bpy.types.Operator):
-    """Flips X-rotation by 90 degrees"""  # Use this as a tooltip for menu items and buttons.
+    """Flips X-rotation by 90°"""  # Use this as a tooltip for menu items and buttons.
     bl_idname = "object.correct_orientation"  # Unique identifier for buttons and menu items to reference.
     bl_label = "Rotate by 90°"  # Display name in the interface.
     bl_options = {'REGISTER', 'UNDO'}  # Enable undo for the operator.
