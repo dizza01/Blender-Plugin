@@ -2,10 +2,10 @@
 
 **How to use the VU.CITY Blender plugin**
 1. Save the .py file anywhere on your machine. 
-2. Open Blender and go to Edit-Preferences-Add-ons-Install.
-3. Find and select the .py file you downloaded.
-4. Enable the addon by selecting the box.
-5. Now in Blender's 3D scene if you press N, you'll find the VU.CITY addon appear on the right hand side of the 3D view.
+2. Open Blender and go to Edit->Preferences->Add-ons->Install.
+3. Find and select the VUCITY Plugin.py file you downloaded.
+4. Enable the add-on by selecting the box.
+5. Now in Blender's 3D scene if you press N, you'll find the VU.CITY add-on appear on the right hand side of the 3D view.
 
 **Button Descriptions**
 1. Start Here
