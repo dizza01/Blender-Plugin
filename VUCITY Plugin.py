@@ -13,12 +13,12 @@ import bpy
 
 
 class SelectMesh(bpy.types.Operator):
-    """Selects the objects and merges them into one"""  # Use this as a tooltip for menu items and buttons.
-    bl_idname = "object.select_mesh"  # Unique identifier for buttons and menu items to reference.
-    bl_label = "Select & Merge Meshes"  # Display name in the interface.
-    bl_options = {'REGISTER', 'UNDO'}  # Enable undo for the operator.
+    """Selects the objects and merges them into one"""  
+    bl_idname = "object.select_mesh"  
+    bl_label = "Select & Merge Meshes"  
+    bl_options = {'REGISTER', 'UNDO'}  
 
-    def execute(self, context):  # execute() is called when running the operator.
+    def execute(self, context):  
 
         try:
             #Select mesh
@@ -37,16 +37,16 @@ class SelectMesh(bpy.types.Operator):
         except:
             self.report({'ERROR'}, f"Please import your FBX/OBJ file first.")
 
-        return {'FINISHED'}  # Lets Blender know the operator finished successfully.
+        return {'FINISHED'}  
 
 
 class CorrectOrientation(bpy.types.Operator):
-    """Flips X-rotation by 90°"""  # Use this as a tooltip for menu items and buttons.
-    bl_idname = "object.correct_orientation"  # Unique identifier for buttons and menu items to reference.
-    bl_label = "Rotate by 90°"  # Display name in the interface.
-    bl_options = {'REGISTER', 'UNDO'}  # Enable undo for the operator.
+    """Flips X-rotation by 90°"""  
+    bl_idname = "object.correct_orientation"  
+    bl_label = "Rotate by 90°"  
+    bl_options = {'REGISTER', 'UNDO'}  
 
-    def execute(self, context):  # execute() is called when running the operator.
+    def execute(self, context):  
         try:
             bpy.ops.object.mode_set(mode='OBJECT')
             bpy.ops.object.select_all(action='SELECT')
@@ -62,32 +62,32 @@ class CorrectOrientation(bpy.types.Operator):
 
 
 class MergeByDistance(bpy.types.Operator):
-    """Collapse vertices by distance (Medium recommended)"""  # Use this as a tooltip for menu items and buttons.
-    bl_idname = "object.merging_distance"  # Unique identifier for buttons and menu items to reference.
-    bl_label = "Distance to merge by"  # Display name in the interface.
-    bl_options = {'REGISTER', 'UNDO'}  # Enable undo for the operator.
+    """Collapse vertices by distance (Medium recommended)""" 
+    bl_idname = "object.merging_distance"  
+    bl_label = "Distance to merge by"  
+    bl_options = {'REGISTER', 'UNDO'}  
 
     count_cm: bpy.props.FloatProperty(
         name="distance",
         description="Distance in cm to merge by"
     )
 
-    def execute(self, context):  # execute() is called when running the operator.
+    def execute(self, context):  
         try:
             bpy.ops.object.mode_set(mode='EDIT')
             bpy.ops.mesh.remove_doubles(threshold=self.count_cm)
         except:
             self.report({'ERROR'}, f'Please select & merge meshes first.')
-        return {'FINISHED'}  # Lets Blender know the operator finished successfully.
+        return {'FINISHED'}  
 
 
 class OriginToGeometry(bpy.types.Operator):
-    """Set the object's origin to geometry"""  # Use this as a tooltip for menu items and buttons.
-    bl_idname = "object.origining_geometry"  # Unique identifier for buttons and menu items to reference.
-    bl_label = "Origin to Geometry"  # Display name in the interface.
-    bl_options = {'REGISTER', 'UNDO'}  # Enable undo for the operator.
+    """Set the object's origin to geometry"""  
+    bl_idname = "object.origining_geometry"  
+    bl_label = "Origin to Geometry"  
+    bl_options = {'REGISTER', 'UNDO'}  
 
-    def execute(self, context):  # execute() is called when running the operator.
+    def execute(self, context):  
         try:
             o = bpy.context.object
             mw = o.matrix_world
@@ -117,14 +117,14 @@ class OriginToGeometry(bpy.types.Operator):
             bpy.context.area.type = current_area_type
         except:
             self.report({'ERROR'}, f'Please select & merge meshes first.')
-        return {'FINISHED'}  # Lets Blender know the operator finished successfully.
+        return {'FINISHED'}  
 
 
 class RepositionModel(bpy.types.Operator):
-    """Repostion model (default (0,0,0))(you may need to set your origin to your geometry first)"""  # Use this as a tooltip for menu items and buttons.
-    bl_idname = "object.repositioning_model"  # Unique identifier for buttons and menu items to reference.
-    bl_label = "Zero Model"  # Display name in the interface.
-    bl_options = {'REGISTER', 'UNDO'}  # Enable undo for the operator.
+    """Repostion model (default (0,0,0))(you may need to set your origin to your geometry first)"""  
+    bl_idname = "object.repositioning_model"  
+    bl_label = "Zero Model"  
+    bl_options = {'REGISTER', 'UNDO'}  
 
     count_x: bpy.props.FloatProperty(
         name = "X",
@@ -139,52 +139,52 @@ class RepositionModel(bpy.types.Operator):
     description = "AOD/Height"
     )
 
-    def execute(self, context):  # execute() is called when running the operator.
+    def execute(self, context):  
         try:
             bpy.context.object.location[0] = self.count_x
             bpy.context.object.location[1] = self.count_y
             bpy.context.object.location[2] = self.count_z
         except:
             self.report({'ERROR'}, f'Please select & merge meshes first.')
-        return {'FINISHED'}  # Lets Blender know the operator finished successfully.
+        return {'FINISHED'}  
 
 class RescaleModel(bpy.types.Operator):
-    """Rescale your model x0.1"""  # Use this as a tooltip for menu items and buttons.
-    bl_idname = "object.rescaling_model"  # Unique identifier for buttons and menu items to reference.
-    bl_label = "Scale x0.1"  # Display name in the interface.
-    bl_options = {'REGISTER', 'UNDO'}  # Enable undo for the operator.
+    """Rescale your model x0.1"""  
+    bl_idname = "object.rescaling_model"  
+    bl_label = "Scale x0.1"  
+    bl_options = {'REGISTER', 'UNDO'}  
 
 
-    def execute(self, context):  # execute() is called when running the operator.
+    def execute(self, context):  
         try:
             for i in range(0, 3):
                 bpy.context.object.scale[i] =  bpy.context.object.scale[i] * 0.1
         except:
             self.report({'ERROR'}, f'Please select & merge meshes first.')
-        return {'FINISHED'}  # Lets Blender know the operator finished successfully.
+        return {'FINISHED'}  
 
 class RescaleModel_x10(bpy.types.Operator):
-    """Rescale your model"""  # Use this as a tooltip for menu items and buttons.
-    bl_idname = "object.rescaling_model_x10"  # Unique identifier for buttons and menu items to reference.
-    bl_label = "Scale x10"  # Display name in the interface.
-    bl_options = {'REGISTER', 'UNDO'}  # Enable undo for the operator.
+    """Rescale your model"""  
+    bl_idname = "object.rescaling_model_x10"  
+    bl_label = "Scale x10"  
+    bl_options = {'REGISTER', 'UNDO'}  
 
-    def execute(self, context):  # execute() is called when running the operator.
+    def execute(self, context):  
         try:
             for i in range(0, 3):
                 bpy.context.object.scale[i] =  bpy.context.object.scale[i] * 10
         except:
             self.report({'ERROR'}, f'Please select & merge meshes first.')
-        return {'FINISHED'}  # Lets Blender know the operator finished successfully.
+        return {'FINISHED'}  
 
 
 class FixSmudges(bpy.types.Operator):
-    """Fix smooth shading issues / dark smudges"""  # Use this as a tooltip for menu items and buttons.
-    bl_idname = "object.fixing_smudges"  # Unique identifier for buttons and menu items to reference.
-    bl_label = "Fix Shading Smudges"  # Display name in the interface.
-    bl_options = {'REGISTER', 'UNDO'}  # Enable undo for the operator.
+    """Fix smooth shading issues / dark smudges"""  
+    bl_idname = "object.fixing_smudges"  
+    bl_label = "Fix Shading Smudges"  
+    bl_options = {'REGISTER', 'UNDO'}  
 
-    def execute(self, context):  # execute() is called when running the operator.
+    def execute(self, context):  
         try:
             bpy.ops.object.mode_set(mode='EDIT')
             bpy.ops.mesh.select_all(action='SELECT')
@@ -193,31 +193,33 @@ class FixSmudges(bpy.types.Operator):
             bpy.ops.mesh.faces_shade_flat()
         except:
             self.report({'ERROR'}, f'Please select & merge meshes first.')
-        return {'FINISHED'}  # Lets Blender know the operator finished successfully.
+        return {'FINISHED'}  
 
 
 class RemoveMaterials(bpy.types.Operator):
-    """Remove all materials"""  # Use this as a tooltip for menu items and buttons.
-    bl_idname = "object.removing_materials"  # Unique identifier for buttons and menu items to reference.
-    bl_label = "Remove Materials"  # Display name in the interface.
-    bl_options = {'REGISTER', 'UNDO'}  # Enable undo for the operator.
+    """Remove all materials"""  
+    bl_idname = "object.removing_materials"  
+    bl_label = "Remove Materials"  
+    bl_options = {'REGISTER', 'UNDO'}  
 
-    def execute(self, context):  # execute() is called when running the operator.
+    def execute(self, context):  
 
         for material in bpy.data.materials:
             material.user_clear()
             bpy.data.materials.remove(material)
 
-        return {'FINISHED'}  # Lets Blender know the operator finished successfully.
+        return {'FINISHED'}  
 
 
 class RevealFaces(bpy.types.Operator):
-    """Enable face orientation to see flipped faces"""  # Use this as a tooltip for menu items and buttons.
-    bl_idname = "object.revealing_faces"  # Unique identifier for buttons and menu items to reference.
-    bl_label = "Reveal Flipped Faces"  # Display name in the interface.
-    bl_options = {'REGISTER', 'UNDO'}  # Enable undo for the operator.
+    """Enable face orientation to see flipped faces"""  
+    bl_idname = "object.revealing_faces"  
+    bl_label = "Reveal Flipped Faces"  
+    bl_options = {'REGISTER', 'UNDO'}  
+    
+    
 
-    def execute(self, context):  # execute() is called when running the operator.
+    def execute(self, context):  
 
         for area in bpy.context.screen.areas:
             if area.type == 'VIEW_3D':
@@ -226,38 +228,38 @@ class RevealFaces(bpy.types.Operator):
                         space.overlay.show_face_orientation = not space.overlay.show_face_orientation
                         break
 
-        return {'FINISHED'}  # Lets Blender know the operator finished successfully.
+        return {'FINISHED'}  
 
 class Triangulate(bpy.types.Operator):
-    """Translates n-gons & quads to tris"""  # Use this as a tooltip for menu items and buttons.
-    bl_idname = "object.triangulate"  # Unique identifier for buttons and menu items to reference.
-    bl_label = "Triangulate N-gons & Quads"  # Display name in the interface.
-    bl_options = {'REGISTER', 'UNDO'}  # Enable undo for the operator.
+    """Translates n-gons & quads to tris"""  
+    bl_idname = "object.triangulate"  
+    bl_label = "Triangulate N-gons & Quads"  
+    bl_options = {'REGISTER', 'UNDO'}  
 
-    def execute(self, context):  # execute() is called when running the operator.
+    def execute(self, context):  
         try:
             bpy.ops.object.mode_set(mode='EDIT')
             bpy.ops.mesh.select_all(action='SELECT')
             bpy.ops.mesh.quads_convert_to_tris(quad_method='BEAUTY', ngon_method='BEAUTY')
         except:
             self.report({'ERROR'}, f'Please select & merge meshes first.')
-        return {'FINISHED'}  # Lets Blender know the operator finished successfully.
+        return {'FINISHED'}  
 
 
 class FlipNormals(bpy.types.Operator):
-    """Fix flipped faces (experimental - please merge meshes and collapse vertices for best results)"""  # Use this as a tooltip for menu items and buttons.
-    bl_idname = "object.flipping_normals"  # Unique identifier for buttons and menu items to reference.
-    bl_label = "Correct Flipped Faces"  # Display name in the interface.
-    bl_options = {'REGISTER', 'UNDO'}  # Enable undo for the operator.
+    """Fix flipped faces (experimental - please merge meshes and collapse vertices for best results)"""  
+    bl_idname = "object.flipping_normals"  
+    bl_label = "Correct Flipped Faces"  
+    bl_options = {'REGISTER', 'UNDO'}  
 
-    def execute(self, context):  # execute() is called when running the operator.
+    def execute(self, context):  
         try:
             bpy.ops.object.mode_set(mode='EDIT')
             bpy.ops.mesh.select_all(action='SELECT')
             bpy.ops.mesh.normals_make_consistent(inside=False)
         except:
             self.report({'ERROR'}, f'Please select & merge meshes first.')
-        return {'FINISHED'}  # Lets Blender know the operator finished successfully.
+        return {'FINISHED'}  
 
 
 class VIEW3D_PT_SelectMesh(bpy.types.Panel):
