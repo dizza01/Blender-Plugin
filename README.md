@@ -1,7 +1,7 @@
 # VU.CITY
 
 **How to use the VU.CITY Blender plugin**
-1. Save the .py file anywhere on your machine. 
+1. Save the VUCITY Plugin.py file anywhere on your machine. 
 2. Open Blender and go to Edit->Preferences->Add-ons->Install.
 3. Find and select the VUCITY Plugin.py file you downloaded.
 4. Enable the add-on by selecting the box.
@@ -19,8 +19,8 @@
 
 3. _Zero & Geolocate Model_
    - **Origin to Geometry**: Sets the origin to a point on the base of the model
-   - **Zero Model**: Moves the model to world zero (0, 0, 0)
-   - **Geolocate**: After completing the above to operations, you can now enter your Eastings, Northings and AOD / Height coordinates into the X, Y, Z fields respectively to geolcate your model.
+   - **Zero Model**: Moves the model to World Origin (0, 0, 0)
+   - **Geolocate**: After completing the above two operations, you can now enter your Eastings, Northings and AOD / Height coordinates into the X, Y, Z fields respectively to geolcate your model.
 
 4. _Appearance_
    - **Fix Shading Smudges**: Fixes smooth shading issues / dark smudges
