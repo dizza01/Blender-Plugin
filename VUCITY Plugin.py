@@ -15,7 +15,7 @@ import bpy
 class SelectMesh(bpy.types.Operator):
     """Selects the objects and merges them into one"""  
     bl_idname = "object.select_mesh"  
-    bl_label = "Select & Merge Objects"
+    bl_label = "Select & Merge Meshes"
     bl_options = {'REGISTER', 'UNDO'}  
 
     def execute(self, context):  
