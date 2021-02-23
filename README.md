@@ -36,6 +36,7 @@
   - Triangulate N-gons and Quads: Translates n-gons & quads to tris
      
 
-
+**System requirements**
+1. Blender 2.9 or above
 
 
