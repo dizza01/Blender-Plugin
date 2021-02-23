@@ -1,4 +1,4 @@
-# vu.city
+# VU.CITY
 
 **How to use the VU.CITY Blender plugin**
 1. Save the .py file anywhere on your machine. 
