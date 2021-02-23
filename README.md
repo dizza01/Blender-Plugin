@@ -23,17 +23,17 @@
    - Geolocate: After completing the above to operations, you can now enter your Eastings, Northings and AOD / Height coordinates into the X, Y, Z fields respectively to geolcate your model.
 
 4. Appearance
-  - Fix Shading Smudges: Fixes smooth shading issues / dark smudges
-  - Remove Materials: Removes all materials associated with the model
+   - Fix Shading Smudges: Fixes smooth shading issues / dark smudges
+   - Remove Materials: Removes all materials associated with the model
 
 5. Rescale Model
-  - Scale x0.1: Decreases the scale of your model by factor 10
-  - Scale x.10: Increases the scale of your model by factor 10
+   - Scale x0.1: Decreases the scale of your model by factor 10
+   - Scale x.10: Increases the scale of your model by factor 10
   
 6. Adjust Faces
-  - Reveal Flipped Faces: Reveals flipped faces
-  - Correct Flipped Faces: Recalculates normals to correct flipped faces (Experimental)
-  - Triangulate N-gons and Quads: Translates n-gons & quads to tris
+   - Reveal Flipped Faces: Reveals flipped faces
+   - Correct Flipped Faces: Recalculates normals to correct flipped faces (Experimental)
+   - Triangulate N-gons and Quads: Translates n-gons & quads to tris
      
 
 **System requirements**
