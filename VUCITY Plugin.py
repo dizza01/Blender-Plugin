@@ -5,7 +5,7 @@ bl_info = {
     "version": (1, 0, 0),
     "category": "Object",
     "location": "Operator Search",
-    "desctription": "VU.CITY Plugin"
+    "desctription": "VU.CITY Plugin to facilitate model optimisation in Blender"
 }
 
 import pathlib
