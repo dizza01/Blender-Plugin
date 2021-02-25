@@ -247,7 +247,7 @@ class Triangulate(bpy.types.Operator):
 
 
 class FlipNormals(bpy.types.Operator):
-    """Fix flipped faces (experimental - please merge meshes and collapse vertices for best results)"""  
+    """Fix flipped faces (experimental - please first merge meshes and reduce detail for best results)"""
     bl_idname = "object.flipping_normals"  
     bl_label = "Correct Flipped Faces"  
     bl_options = {'REGISTER', 'UNDO'}  
